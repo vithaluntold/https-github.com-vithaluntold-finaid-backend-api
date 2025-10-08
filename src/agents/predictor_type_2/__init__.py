@@ -1,0 +1,1 @@
+from src.agents.predictor_type_2.graphs.app.graph import predictor_app

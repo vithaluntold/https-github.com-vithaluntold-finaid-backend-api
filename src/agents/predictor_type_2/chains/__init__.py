@@ -1,0 +1,5 @@
+from src.agents.predictor_type_2.chains.column_selector import chain_column_selector
+from src.agents.predictor_type_2.chains.values_selector import chain_trx_values_selector
+from src.agents.predictor_type_2.chains.image_payment_advise_extractor import chain_image_payment_advise_extractor
+from src.agents.predictor_type_2.chains.category_predictor import chain_category_predictor
+from src.agents.predictor_type_2.chains.description_parser import chain_description_parser

@@ -1,0 +1,56 @@
+services:
+  # Backend API Service
+  - type: web
+    name: finaid-backend-api
+    env: python
+    region: oregon
+    plan: starter
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python app.py"
+    healthCheckPath: /
+    
+    # Environment Variables
+    envVars:
+      # Azure OpenAI Configuration (Primary)
+      - key: AZURE_OPENAI_ENDPOINT
+        sync: false  # Set in Render dashboard
+      - key: AZURE_OPENAI_API_KEY
+        sync: false  # Set in Render dashboard  
+      - key: AZURE_OPENAI_API_VERSION
+        value: "2025-01-01-preview"
+      - key: AZURE_OPENAI_DEPLOYMENT_NAME
+        value: "model-router"
+      - key: AZURE_OPENAI_MODEL_NAME
+        value: "gpt-4"
+      
+      # Fallback API Keys (Optional)
+      - key: OPENAI_API_KEY
+        sync: false  # Set in Render dashboard if using fallback
+      - key: ANTHROPIC_API_KEY
+        sync: false  # Set in Render dashboard if using fallback
+      
+      # Vector Store Configuration
+      - key: CHROMA_DIR
+        value: "./chroma_db"
+      
+      # LangChain Tracing (Optional - for debugging)
+      - key: LANGCHAIN_TRACING_V2
+        value: "false"
+      - key: LANGCHAIN_ENDPOINT
+        value: "https://api.smith.langchain.com"
+      - key: LANGCHAIN_API_KEY
+        sync: false  # Optional - only if using LangSmith
+      - key: LANGCHAIN_PROJECT
+        value: "finaid-agents"
+      
+      # Flask Configuration
+      - key: FLASK_ENV
+        value: "production"
+      - key: FLASK_DEBUG
+        value: "false"
+    
+    # Disk storage for Chroma vector database
+    disk:
+      name: chroma-storage
+      mountPath: /opt/render/project/src/chroma_db
+      sizeGB: 1

@@ -1,0 +1,6 @@
+COLUMN_SELECT = "column_select"
+STANDARDIZE_INPUT = "standardize_input"
+CREATE_INPUT_OBJECTS = "create_input_objects"
+CATEGORY_PREDICT = "category_predict"
+VALUES_SELECT_TRX = "values_select_trx"
+FINAL_CLEANUP = "final_cleanup"

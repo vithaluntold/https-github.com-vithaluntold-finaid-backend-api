@@ -1,0 +1,16 @@
+jq
+pydash
+python-dotenv
+Flask
+flask-cors
+pandas
+langchain
+langchain-aws
+langchain-core
+langchain-openai
+langchain-chroma
+langchain-milvus
+langchain-anthropic
+langchain-community
+langgraph
+price-parser

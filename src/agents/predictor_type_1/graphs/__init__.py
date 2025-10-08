@@ -1,0 +1,1 @@
+from src.agents.predictor_type_1.graphs.app_csv import category_predictor_app_csv
